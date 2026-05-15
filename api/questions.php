@@ -1,16 +1,4 @@
 <?php
-/*
- * api/questions.php
- * Returns a JSON array of quiz questions.
- *
- * Supports two question formats:
- *
- * Format 1 (your format):
- *   { "question": "...", "A": "...", "B": "...", "C": "...", "D": "...", "answer": "A" }
- *
- * Format 2 (options array):
- *   { "question": "...", "options": [...], "correct": 0 }
- */
 
 session_start();
 

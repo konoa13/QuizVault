@@ -1,16 +1,11 @@
 <?php
-/*
- * config/db.php
- * Edit the four constants below to match your hosting environment.
- * On most shared hosts: host=localhost, port=3306, user/pass from your control panel.
- * On MAMP (local): host=localhost, port=8889, user=root, pass=root
- */
 
-$host    = "localhost";
-$db      = "quiz_app";
-$user    = "root";
-$pass    = "root";
-$port    = 3306;          // Change to 8889 if using MAMP locally
+
+$host    = "sql111.infinityfree.com";
+$db      = "if0_41924876_quizvault";
+$user    = "if0_41924876";
+$pass    = "Vh7siOgfuOl";
+$port    = 3306;
 $charset = "utf8mb4";
 
 $dsn = "mysql:host=$host;port=$port;dbname=$db;charset=$charset";
