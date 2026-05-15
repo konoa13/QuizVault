@@ -32,15 +32,15 @@ A multiple-choice quiz app built with PHP, MySQL, HTML, CSS, and JavaScript.
 ## Database Schema
 
 **users**
-- id — INT UNSIGNED, Primary key
+- id — INT , Primary key
 - username — VARCHAR(30), Unique
 - email — VARCHAR(255), Unique
 - password — VARCHAR(255), bcrypt hash
 - created_at — DATETIME, Auto timestamp
 
 **scores**
-- id — INT UNSIGNED, Primary key
-- user_id — INT UNSIGNED, Foreign key to users
+- id — INT , Primary key
+- user_id — INT , Foreign key to users
 - score — INT, Number of correct answers
 - total — INT, Total questions in that game
 - time_taken — INT, Seconds used, NULL if no timer
