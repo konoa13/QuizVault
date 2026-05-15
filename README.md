@@ -1,51 +1,54 @@
-QuizVault
-A multiple-choice quiz web application built with PHP, MySQL, HTML, CSS, and JavaScript.
-Live Site: https://quizvault.rf.gd/quiz-app
+# QuizVault
 
-Features
+A multiple-choice quiz app built with PHP, MySQL, HTML, CSS, and JavaScript.
 
-User signup and login with password hashing
-Multiple-choice quiz with A/B/C/D answer buttons
-Configurable number of questions (5, 10, 15, or 20)
-Optional per-question countdown timer (none, 15s, 30s, 60s)
-Anti-repeat logic so unseen questions are shown first
-Score saved to database after every game
-Results page with animated score ring and accuracy stats
-Profile page showing full play history
-Leaderboard showing top 10 players with your rank highlighted
-Replay or change settings from the results page
+**Live Site:** https://quizvault.rf.gd/quiz-app
 
+---
 
-How to Run Locally
-Requirements
+## Features
 
-PHP 8.0 or higher
-MySQL 5.7 or higher
-MAMP, XAMPP, or any local PHP server
+- Signup and login with password hashing
+- Multiple-choice quiz with A/B/C/D buttons
+- Choose number of questions: 5, 10, 15, or 20
+- Optional countdown timer per question
+- Anti-repeat logic so unseen questions show first
+- Results page with score ring and accuracy stats
+- Profile page with full play history
+- Leaderboard showing top 10 players
 
-Setup
+---
 
-Copy the project folder into your MAMP htdocs directory
-Start MAMP and open phpMyAdmin at http://localhost:8888/phpMyAdmin
-Create a database called quiz_app
-Click the SQL tab, paste the contents of schema.sql, and click Go
-Open config/db.php and set your local credentials:
+## How to Run Locally
 
-MAMP default: host=localhost, port=8889, user=root, pass=root
+1. Copy the project into your MAMP `htdocs` folder
+2. Open phpMyAdmin and create a database called `quiz_app`
+3. Run `schema.sql` to create the tables
+4. Update `config/db.php` with your local credentials
+5. Visit `http://localhost:8888/quiz-app`
 
+---
 
-Visit http://localhost:8888/quiz-app
+## Database Schema
 
+**users**
+- id — INT UNSIGNED, Primary key
+- username — VARCHAR(30), Unique
+- email — VARCHAR(255), Unique
+- password — VARCHAR(255), bcrypt hash
+- created_at — DATETIME, Auto timestamp
 
-Database Schema
-users
-ColumnTypeNotesidINT UNSIGNEDPrimary key, auto-incrementusernameVARCHAR(30)UniqueemailVARCHAR(255)UniquepasswordVARCHAR(255)bcrypt hashcreated_atDATETIMEDefault: current timestamp
-scores
-ColumnTypeNotesidINT UNSIGNEDPrimary key, auto-incrementuser_idINT UNSIGNEDForeign key to users.idscoreINTNumber of correct answerstotalINTTotal questions in that gametime_takenINTSeconds used; NULL if no timercreated_atDATETIMEDefault: current timestamp
+**scores**
+- id — INT UNSIGNED, Primary key
+- user_id — INT UNSIGNED, Foreign key to users
+- score — INT, Number of correct answers
+- total — INT, Total questions in that game
+- time_taken — INT, Seconds used, NULL if no timer
+- created_at — DATETIME, Auto timestamp
 
-Technologies Used
+---
 
-Frontend: HTML, CSS, JavaScript
-Backend: PHP
-Database: MySQL
-Hosted on: InfinityFree
+## Technologies
+
+- PHP, MySQL, HTML, CSS, JavaScript
+- Hosted on InfinityFree
